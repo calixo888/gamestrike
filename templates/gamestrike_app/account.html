@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends "gamestrike_app/base.html" %}
+{% block body_block %}
+  <title>GameStrike - {{user}}</title>
+  <div class="flex-container">
+    <div style="margin-bottom: 75px;" class="stretch-container">
+      <h1 class="login-heading heading-large">{{user.first_name}} {{user.last_name}}</h1>
+      <div class="form-container">
+        <div class="icon-container">
+          <img style="z-index: 1;" class="account-icon" src=http://{{request.get_host}}/media/profile_pictures/{{user.username}}.png onerror="this.style.display='none'">
+          <img class="account-icon" src=http://{{request.get_host}}/media/profile_pictures/default.png>
+        </div>
+        <div class="account-information">
+          <p class="account-heading">{{user}}</p>
+          <p style="color: rgb(48,48,48);">{{user.email}}</p>
+          <p style="color: rgb(48,48,48);">{{profile.description}}</p>
+          <div class="account-links">
+            <a style="color: rgb(48,48,48);" class="account-link" href="/profile-edit/">Edit Account Information</a>
+            <br>
+            <a style="color: rgb(48,48,48);" class="account-link" href="/logout/">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
