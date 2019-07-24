@@ -1,0 +1,23 @@
+* {
+  font-family: Russo One;
+}
+
+#header {
+  background-image: linear-gradient(to right bottom, rgb(84, 84, 84), rgb(48, 48, 48));
+}
+
+#header * {
+  color: white !important;
+}
+
+th a {
+  color: rgb(48,48,48) !important;
+}
+
+.breadcrumbs {
+  background-image: linear-gradient(to right bottom, rgb(84, 84, 84), rgb(48, 48, 48)) !important;
+}
+
+caption {
+  background-image: linear-gradient(to right bottom, rgb(84, 84, 84), rgb(48, 48, 48)) !important;
+}

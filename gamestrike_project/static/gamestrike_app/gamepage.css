@@ -1,0 +1,19 @@
+.container {
+  display: grid;
+  grid-template-columns: 1000px 1fr;
+  margin: 50px;
+}
+
+.game-window {
+  grid-column: 1/2;
+}
+
+.vertical {
+  display: inline-block;
+  grid-column: 2/3;
+}
+
+.game-header {
+  margin-top: none;
+  margin-bottom: 10px;
+}
