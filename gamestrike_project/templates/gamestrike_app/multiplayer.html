@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends "gamestrike_app/base.html" %}
+{% block body_block %}
+<title>GameStrike - Multiplayer Games</title>
+<div class="all_games">
+    <h3 style="color: rgb(61, 61, 61);" class="heading-medium">Multiplayer Games</h3>
+    <div class="the_games">
+      {% for i in games %}
+        <div class="games">
+          {% for x in i %}
+            <div class="game-container">
+              <div class="blur-container">
+                <div class="game game3">
+                  <img class='game-image' src='/static/gamestrike_app/thumbnails/{{x.image_url}}' alt='Game Image'>
+                  <p class="game-description">{{x.description}}</p>
+                </div>
+              </div>
+              <h5 class="game-header heading-small"><a href="{{x.url}}" class="game-link">{{x.name}}</a></h5>
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

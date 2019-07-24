@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load template_filters %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'gamestrike_app/all_games.css' %}">
+    <link rel="stylesheet" href="{% static 'gamestrike_app/index.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header class="header">
+      <img class="logo" src="{% static "gamestrike_app/logo.png" %}" alt="GameStrike Logo">
+      <div class="center-container">
+        <h1 class="main-header heading-large">GameStrike</h1>
+      </div>
+      {% if user.is_authenticated %}
+        <div class="login-container">
+          <img style="z-index: 1;" class="user-icon" src=http://{{request.get_host}}/media/profile_pictures/{{user.username}}.png onerror="this.style.display='none'">
+          <img class="user-icon" src=http://{{request.get_host}}/media/profile_pictures/default.png>
+          <br>
+          <a class="username" href="{% url "gamestrike_app:account" %}">{{user}}</a>
+        </div>
+      {% else %}
+        <div class="login-container">
+          <img class="login-icon" src={% static "gamestrike_app/login.png" %} alt="Login Icon">
+          <br>
+          <a class="login-link" href="/login/">Login/Register</a>
+        </div>
+      {% endif %}
+    </header>
+    <div class="links">
+      <ul style="margin-bottom: none;" class="links-list">
+        <li class="links-list-item"><a href="{% url "gamestrike_app:index" %}" class="links-list-link">Home</a></li>
+        <li class="links-list-item"><a href="{% url "gamestrike_app:all_games" %}" class="links-list-link">All Games</a></li>
+        <li class="links-list-item"><a href="{% url "gamestrike_app:trivia" %}" class="links-list-link">Trivia</a></li>
+        <li class="links-list-item"><a href="{% url "gamestrike_app:strategy" %}" class="links-list-link">Strategy</a></li>
+        <li class="links-list-item"><a href="{% url "gamestrike_app:multiplayer" %}" class="links-list-link">Multiplayer</a></li>
+      </ul>
+    </div>
+    {% block body_block %}
+
+    {% endblock %}
+    <footer class="footer">
+      <div class="center-container">
+        <img src="{% static "gamestrike_app/logo.png" %}" alt="GameStrike Logo">
+        <h3 style="color: white; margin-top: 20px;" class="heading-medium">GameStrike</h3>
+        <div class="footer-information">
+          <ul class="footer-items">
+            <li class="footer-item"><a class="footer-link" href="/support/">Support</a></li>
+            <li class="footer-item"><a class="footer-link" href="/creators/">Creators</a></li>
+            <li class="footer-item"><a class="footer-link" href="/support/">Contact us</a></li>
+            <li class="footer-item"><a class="footer-link" href="/support/">About us</a></li>
+            <li class="footer-item"><a class="footer-link" href="/support/">How to use GameStrike</a></li>
+            <li class="footer-item"><a class="footer-link" href="/terms-conditions/">Terms & Conditions</a></li>
+            <li class="footer-item"><a class="footer-link" href="/support/">More</a></li>
+          </ul>
+        </div>
+        <div class="social-media-container">
+          <h5 class="heading-small">Follow us on social media</h5>
+          <ul class="social-media-items">
+            <li class="footer-item"><a class="footer-link" href="">Instagram</a></li>
+            <li class="footer-item"><a class="footer-link" href="">Facebook</a></li>
+            <li class="footer-item"><a class="footer-link" href="">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
