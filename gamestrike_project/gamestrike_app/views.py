@@ -8,7 +8,7 @@ from gamestrike_app import forms
 from gamestrike_app import models
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from crop_images import crop_images
 import datetime
