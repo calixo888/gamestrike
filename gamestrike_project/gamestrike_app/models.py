@@ -32,7 +32,7 @@ class Game(models.Model):
         return self.name
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     description = models.CharField(max_length=300, blank=True)
     profile_picture = models.ImageField(upload_to=path_and_rename, blank=True, default="default.png")
 
